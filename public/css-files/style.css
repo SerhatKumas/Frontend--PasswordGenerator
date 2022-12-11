@@ -1,3 +1,7 @@
 #centerized-div{
     min-height: 100vh
 }
+
+.thick-line{
+    border-top: 15px dashed #be0000;
+}
