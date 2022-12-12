@@ -2,34 +2,53 @@ let lengthOfPassword = 0;
 let numberOfSpecialCase = 0;
 let numberOfUpperCase = 0;
 let numberOfNumberChar = 0;
+let numberOfLowerCase = 0;
 let newPassword ="";
+let counter = 0;
 
 function generatePassword(){
     lengthOfPassword = document.getElementById("text-length").value;
     if(document.getElementById("special-case").checked){
-        numberOfSpecialCase = document.getElementById("special-case-length").value;}
+        numberOfSpecialCase = Number(document.getElementById("special-case-length").value);}
         if(document.getElementById("upper-case").checked){
-    numberOfUpperCase = document.getElementById("upper-case-length").value;}
+    numberOfUpperCase = Number(document.getElementById("upper-case-length").value);}
     if(document.getElementById("number-char").checked){
-    numberOfNumberChar = document.getElementById("number-char-length").value;}
+    numberOfNumberChar = Number(document.getElementById("number-char-length").value);}
+
+    numberOfLowerCase = lengthOfPassword - (numberOfNumberChar+numberOfSpecialCase+numberOfUpperCase);
     
-    for(i=0;i<lengthOfPassword;i++){
-        let randomDecider = Math.floor(Math.random() * 4)
-        if(randomDecider==0 && numberOfUpperCase!=0){
-           newPassword+=createUpperCase();
-        }
-        else if(randomDecider==1 && numberOfSpecialCase!=0){
-            newPassword+=createSpecialCase();
-        }
-        else if(randomDecider==2 && numberOfNumberChar!=0){
-            newPassword+=createNumberChar();
-        }
-        else{
-            newPassword+=createLowerCase();
+    if((numberOfNumberChar+numberOfSpecialCase+numberOfUpperCase)<=lengthOfPassword){
+        while(counter<lengthOfPassword){
+            let randomDecider = Math.floor(Math.random() * 4)
+            if(randomDecider==0 && numberOfUpperCase!=0){
+               newPassword+=createUpperCase();
+               --numberOfUpperCase;
+               counter++;
+            }
+            else if(randomDecider==1 && numberOfSpecialCase!=0){
+                newPassword+=createSpecialCase();
+                --numberOfSpecialCase
+                counter++;
+            }
+            else if(randomDecider==2 && numberOfNumberChar!=0){
+                newPassword+=createNumberChar();
+                --numberOfNumberChar
+                counter++;
+            }
+            else if(randomDecider==3 && numberOfLowerCase!=0){
+                newPassword+=createLowerCase();
+                --numberOfLowerCase;
+                counter++;
+            }
         }
     }
+    else{
+        alert("Number of requested password characters are not valid");
+    }
+    
     console.log(newPassword);
     newPassword="";
+    counter =0;
 }
 
 function createSpecialCase(){
