@@ -52,17 +52,21 @@ function generatePassword(){
 }
 
 function createSpecialCase(){
-    return "-";
+   let randomChar = String.fromCharCode((Math.floor(Math.random() * (15) + 33)));
+    return randomChar;
 }
 
 function createUpperCase(){
-    return "S";
+    let randomChar = String.fromCharCode((Math.floor(Math.random() * (26) + 65)));
+    return randomChar;
 }
 
 function createLowerCase(){
-    return "s";
+    let randomChar = String.fromCharCode((Math.floor(Math.random() * (26) + 97)));
+    return randomChar;
 }
 
 function createNumberChar(){
-    return "1";
+    let randomChar = String.fromCharCode((Math.floor(Math.random() * (10) + 48)));
+    return randomChar;
 }
