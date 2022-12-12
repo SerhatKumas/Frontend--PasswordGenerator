@@ -41,14 +41,11 @@ function generatePassword(){
                 counter++;
             }
         }
+        printResult();
     }
     else{
         alert("Number of requested password characters are not valid");
     }
-    
-    console.log(newPassword);
-    newPassword="";
-    counter =0;
 }
 
 function createSpecialCase(){
@@ -69,4 +66,12 @@ function createLowerCase(){
 function createNumberChar(){
     let randomChar = String.fromCharCode((Math.floor(Math.random() * (10) + 48)));
     return randomChar;
+}
+
+function printResult(){ 
+    let resulter = document.getElementById("generated-password");
+    console.log(newPassword);
+    resulter.innerHTML = newPassword;
+    newPassword="";
+    counter =0;
 }

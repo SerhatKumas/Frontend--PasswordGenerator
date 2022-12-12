@@ -5,3 +5,9 @@
 .thick-line{
     border-top: 15px dashed #be0000;
 }
+
+.result{
+    background-color: #be0000;
+    height: 20vh;
+    border-radius: 10vh;
+}

@@ -12,7 +12,7 @@
     <div class="container-fluid">
             <div class="row align-items-center justify-content-center" id="centerized-div">
               
-                    <div class="col-md-6 text-center">
+                    <div class="col-md-4 text-center">
                       <h1 class="mb-5">Please click on features that you want to include in your password.</h1>
                       <div class="input-group mb-3">
                         <input id="text-length" type="text" class="form-control" aria-label="Text input with checkbox" placeholder="How many digit character you want your password">
@@ -42,6 +42,17 @@
                             <input id="special-case-length" type="text" class="form-control" aria-label="Text input with checkbox" placeholder="How many digit of Special Case Character">
                           </div>
                           <button type="button" class="btn btn-danger mt-5" onclick="generatePassword()">Generate</button>
+                    </div>
+                    <div class="col-md-1 text-center">
+
+                    </div>
+                    <div class="col-md-6 text-center text-white result">
+                      <h1>Generated Password</h1>
+                      <br><br>
+                      <p id="generated-password"></p>
+                    </div>
+                    <div class="col-md-1 text-center">
+
                     </div>
                 </div>
                 
