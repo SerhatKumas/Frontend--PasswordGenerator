@@ -1,63 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Generator</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="public/css-files/style.css">
-</head>
-<body>
-    <div class="container-fluid">
-            <div class="row align-items-center justify-content-center" id="centerized-div">
-              
-                    <div class="col-md-4 text-center">
-                      <h1 class="mb-5">Please click on features that you want to include in your password.</h1>
-                      <div class="input-group mb-3">
-                        <input id="text-length" type="text" class="form-control" aria-label="Text input with checkbox" placeholder="How many digit character you want your password">
-                      </div>
-                      <hr class="thick-line">
-                        <p class="text-start">Upper Case Character</p>
-                        <div class="input-group mb-3 text-start">
-                            <div class="input-group-text">
-                              <input id="upper-case" class="form-check-input mt-0" type="checkbox" value="true" aria-label="Checkbox for following text input">
-                            </div>
-                            <input id="upper-case-length" type="text" class="form-control" aria-label="Text input with checkbox" placeholder="How many digit of Upper Case Character">
-                          </div>
-                          <hr class="thick-line">
-                          <p class="text-start">Number</p>
-                          <div class="input-group mb-3">
-                            <div class="input-group-text">
-                              <input id="number-char" class="form-check-input mt-0" type="checkbox" value="true" aria-label="Checkbox for following text input">
-                            </div>
-                            <input id="number-char-length" type="text" class="form-control" aria-label="Text input with checkbox" placeholder="How many digit of Number Character">
-                          </div>
-                          <hr class="thick-line">
-                          <p class="text-start">Special Case Character (, . ? and so on)</p>
-                          <div class="input-group mb-3">
-                            <div class="input-group-text">
-                              <input id="special-case" class="form-check-input mt-0" type="checkbox" value="true" aria-label="Checkbox for following text input">
-                            </div>
-                            <input id="special-case-length" type="text" class="form-control" aria-label="Text input with checkbox" placeholder="How many digit of Special Case Character">
-                          </div>
-                          <button type="button" class="btn btn-danger mt-5" onclick="generatePassword()">Generate</button>
-                    </div>
-                    <div class="col-md-1 text-center">
-
-                    </div>
-                    <div class="col-md-6 text-center text-white result">
-                      <h1>Generated Password</h1>
-                      <br><br>
-                      <p id="generated-password"></p>
-                    </div>
-                    <div class="col-md-1 text-center">
-
-                    </div>
-                </div>
-                
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Password Generator</title>
+      <!-- Bootstrap 5 css cdn link-->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+      <!-- External custom css link-->
+      <link rel="stylesheet" href="public/css-files/style.css">
+   </head>
+   <body>
+      <div class="container-fluid">
+         <div class="row align-items-center justify-content-center" id="centerized-div">
+            <div class="col-md-4 text-center">
+               <h1 class="mb-5">Please click on features that you want to include in your password.</h1>
+               <!-- Password length input -->
+               <div class="input-group mb-3">
+                  <input id="text-length" type="text" class="form-control" aria-label="Text input with checkbox" placeholder="How many digit character you want your password">
+               </div>
+               <!-- Password length input -->
+               <hr class="thick-line">
+               <!-- Upper case determiner inputs -->
+               <p class="text-start">Upper Case Character</p>
+               <div class="input-group mb-3 text-start">
+                  <div class="input-group-text">
+                     <input id="upper-case" class="form-check-input mt-0" type="checkbox" value="true" aria-label="Checkbox for following text input">
+                  </div>
+                  <input id="upper-case-length" type="text" class="form-control" aria-label="Text input with checkbox" placeholder="How many digit of Upper Case Character">
+               </div>
+                <!-- Upper case determiner inputs -->
+                 <!-- Number char determiner inputs -->
+               <hr class="thick-line">
+               <p class="text-start">Number</p>
+               <div class="input-group mb-3">
+                  <div class="input-group-text">
+                     <input id="number-char" class="form-check-input mt-0" type="checkbox" value="true" aria-label="Checkbox for following text input">
+                  </div>
+                  <input id="number-char-length" type="text" class="form-control" aria-label="Text input with checkbox" placeholder="How many digit of Number Character">
+               </div>
+                <!-- Number char determiner inputs -->
+                 <!-- Special case determiner inputs -->
+               <hr class="thick-line">
+               <p class="text-start">Special Case Character (, . ? and so on)</p>
+               <div class="input-group mb-3">
+                  <div class="input-group-text">
+                     <input id="special-case" class="form-check-input mt-0" type="checkbox" value="true" aria-label="Checkbox for following text input">
+                  </div>
+                  <input id="special-case-length" type="text" class="form-control" aria-label="Text input with checkbox" placeholder="How many digit of Special Case Character">
+               </div>
+                <!-- Special case determiner inputs -->
+               <button type="button" class="btn btn-danger mt-5" onclick="generatePassword()">Generate</button>
             </div>
-    <script src="src/PasswordCreator.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-</body>
+            <div class="col-md-1 text-center">
+            </div>
+             <!-- Result Screen -->
+            <div class="col-md-6 text-center text-white result">
+               <h1>Generated Password</h1>
+               <br><br>
+               <p id="generated-password"></p>
+            </div>
+             <!-- Result Screen -->
+            <div class="col-md-1 text-center">
+            </div>
+         </div>
+      </div>
+      <!-- External css cdn link -->
+      <script src="src/PasswordCreator.js"></script>
+      <!-- Bootsrap 5 js cdn link -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   </body>
 </html>

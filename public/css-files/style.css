@@ -1,11 +1,11 @@
 #centerized-div{
-    min-height: 100vh
+    min-height: 100vh 
 }
-
+/* Password parameter between zebra line css */
 .thick-line{
     border-top: 15px dashed #be0000;
 }
-
+/* Result screen div css */
 .result{
     background-color: #be0000;
     height: 20vh;
